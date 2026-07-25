@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veri Bilimi ve Yapay Zeka Uzmanlığı Programı · Europe Coding School</title>
+<meta name="description" content="Europe Coding School ile 15 haftalık, 90 saatlik Veri Bilimi ve Yapay Zeka Uzmanlığı Programı. Python, Pandas, Makine Öğrenmesi, NLP, Derin Öğrenme ve MLOps.">
+<meta name="theme-color" content="#1B3A6B">
+<meta property="og:title" content="Veri Bilimi & YZ Uzmanlığı · Europe Coding School">
+<meta property="og:description" content="15 haftalık, 90 saatlik Veri Bilimi ve Yapay Zeka Uzmanlığı Programı.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ecs-red:#C8102E;
+    --ecs-red-dark:#9E0C24;
+    --ecs-navy:#1B3A6B;
+    --ecs-navy-dark:#12294D;
+    --ecs-navy-deep:#0C1B33;
+    --ink:#0E1726;
+    --muted:#5A6577;
+    --line:#E4E8EF;
+    --bg:#FFFFFF;
+    --bg-soft:#F5F7FB;
+    --bg-card:#FFFFFF;
+    --gold:#E8B04B;
+    --radius:16px;
+    --shadow:0 4px 24px rgba(18,41,77,.08);
+    --shadow-lg:0 18px 50px rgba(18,41,77,.16);
+    --display:'Sora',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img{height:40px;width:auto}
+  .brand .bt{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.02em;line-height:1.2;color:var(--ecs-navy)}
+  .brand .bt span{display:block;font-weight:500;font-size:.72rem;color:var(--muted)}
+  .nav-tags{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .ntag{font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--bg-soft);color:var(--ecs-navy);border:1px solid var(--line)}
+  .nav-cta{background:var(--ecs-red);color:#fff;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.82rem;transition:.2s}
+  .nav-cta:hover{background:var(--ecs-red-dark)}
+  @media(max-width:860px){.nav-tags{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{background:linear-gradient(160deg,var(--ecs-navy-deep) 0%,var(--ecs-navy) 55%,var(--ecs-navy-dark) 100%);color:#fff;position:relative;overflow:hidden;padding:96px 0 88px}
+  .hero::before{content:"";position:absolute;top:-120px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(200,16,46,.35),transparent 70%);filter:blur(20px)}
+  .hero::after{content:"";position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(232,176,75,.18),transparent 70%);filter:blur(20px)}
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(232,176,75,.4);padding:7px 16px;border-radius:999px;margin-bottom:26px}
+  .hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.02em;max-width:16ch}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero .lede{margin-top:22px;font-size:1.06rem;color:rgba(255,255,255,.78);max-width:52ch}
+  .hero-meta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.82rem;color:rgba(255,255,255,.65)}
+  .hero-meta span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:8px}
+  .stats{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:22px 26px;min-width:120px}
+  .stat b{font-family:var(--display);font-size:2.4rem;font-weight:800;display:block;line-height:1;color:#fff}
+  .stat small{font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em}
+  .hero-btns{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;padding:14px 28px;border-radius:999px;transition:.2s;cursor:pointer;border:none}
+  .btn-primary{background:var(--ecs-red);color:#fff}
+  .btn-primary:hover{background:var(--ecs-red-dark);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+  /* ---------- ASSESSMENT BAR ---------- */
+  .assess{background:var(--bg-soft);border-bottom:1px solid var(--line)}
+  .assess .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding:26px 24px}
+  .abadge{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;color:var(--ecs-navy)}
+  .abadge b{font-family:var(--display);color:var(--ecs-red);font-size:1.15rem}
+  .abadge .dot{width:9px;height:9px;border-radius:50%;background:var(--ecs-red)}
+
+  /* ---------- SECTION HEAD ---------- */
+  .shead{margin-bottom:42px}
+  .shead .kick{font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--ecs-red);letter-spacing:.08em;text-transform:uppercase}
+  .shead h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.02em;margin-top:10px;color:var(--ecs-navy)}
+  .shead p{color:var(--muted);margin-top:12px;max-width:60ch}
+
+  /* ---------- CURRICULUM ---------- */
+  .block{margin-bottom:56px}
+  .block-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--line)}
+  .block-head .idx{font-family:var(--display);font-weight:800;font-size:1.1rem;color:#fff;background:var(--ecs-red);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+  .block-head h3{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ecs-navy);letter-spacing:-.01em}
+  .block-head .hrs{margin-left:auto;font-family:var(--mono);font-size:.82rem;font-weight:500;color:var(--muted);background:var(--bg-soft);padding:6px 14px;border-radius:999px;border:1px solid var(--line)}
+  .weeks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .week{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.22s;position:relative;overflow:hidden}
+  .week::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ecs-red);transform:scaleY(0);transform-origin:top;transition:.25s}
+  .week:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+  .week:hover::before{transform:scaleY(1)}
+  .week .wk{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--ecs-red);letter-spacing:.06em}
+  .week .wh{float:right;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .week h4{font-family:var(--display);font-weight:600;font-size:1.02rem;color:var(--ink);margin:12px 0 8px;line-height:1.3}
+  .week .mod{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+  .libs{display:flex;flex-wrap:wrap;gap:6px}
+  .lib{font-family:var(--mono);font-size:.68rem;background:var(--bg-soft);color:var(--ecs-navy);padding:3px 9px;border-radius:6px;border:1px solid var(--line)}
+
+  /* ---------- PLATFORMS ---------- */
+  .plat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .plat{display:flex;gap:14px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:.2s}
+  .plat:hover{box-shadow:var(--shadow);border-color:var(--ecs-navy)}
+  .plat .ic{font-size:1.5rem;flex:none;line-height:1}
+  .plat b{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ecs-navy);display:block;margin-bottom:4px}
+  .plat span{font-size:.82rem;color:var(--muted)}
+
+  /* ---------- REQUIREMENTS ---------- */
+  .req-section{background:var(--bg-soft)}
+  .req-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .req{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .req .ic{font-size:1.7rem;margin-bottom:14px;display:block}
+  .req h4{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--ecs-navy);margin-bottom:8px}
+  .req p{font-size:.9rem;color:var(--muted)}
+
+  /* ---------- CTA ---------- */
+  .cta-section{background:linear-gradient(150deg,var(--ecs-navy) 0%,var(--ecs-navy-deep) 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta-section::before{content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(200,16,46,.3),transparent 70%);filter:blur(30px)}
+  .cta-section .wrap{position:relative;z-index:2}
+  .cta-section h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.02em}
+  .cta-section p{margin:18px auto 34px;color:rgba(255,255,255,.75);max-width:52ch;font-size:1.05rem}
+  .cta-btn{background:var(--ecs-red);color:#fff;font-size:1.05rem;padding:16px 40px}
+  .cta-btn:hover{background:var(--ecs-red-dark);transform:translateY(-2px)}
+  .cta-note{margin-top:22px;font-family:var(--mono);font-size:.85rem;color:rgba(255,255,255,.55)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ecs-navy-deep);color:rgba(255,255,255,.7);padding:56px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer h5{font-family:var(--display);font-weight:600;color:#fff;font-size:1rem;margin-bottom:16px}
+  footer p{font-size:.9rem;line-height:1.7}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px;font-size:.9rem}
+  footer a:hover{color:var(--gold)}
+  .foot-brand img{height:38px;margin-bottom:16px;filter:brightness(0) invert(1)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;font-size:.82rem;color:rgba(255,255,255,.5)}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:.6s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <img src="logo.png" alt="Europe Coding School">
+    </a>
+    <nav class="nav-tags">
+      <span class="ntag">Hafta 1–4 · VB Temelleri</span>
+      <span class="ntag">Hafta 5–9 · ML Uzmanlığı</span>
+      <span class="ntag">Hafta 10–15 · YZ Mühendisliği</span>
+    </nav>
+    <a href="#kayit" class="nav-cta">Kayıt Ol</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">● Europe Coding School Eğitim Programı</span>
+    <h1>Veri Bilimi ve <em>Yapay Zeka</em> Uzmanlığı Programı</h1>
+    <p class="lede">Python temellerinden Generative AI'a kadar; makine öğrenmesi, derin öğrenme ve NLP'yi projelerle öğreten 15 haftalık uygulamalı program.</p>
+    <div class="hero-meta">
+      <span>Google Colab</span>
+      <span>GitHub Portföyü</span>
+      <span>Canlı & Etkileşimli</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>90</b><small>Toplam Saat</small></div>
+      <div class="stat"><b>15</b><small>Hafta</small></div>
+      <div class="stat"><b>3</b><small>Bölüm</small></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#mufredat" class="btn btn-primary">Müfredatı İncele →</a>
+      <a href="#kayit" class="btn btn-ghost">Kayıt Bilgileri</a>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<div class="assess">
+  <div class="wrap">
+    <div class="abadge"><span class="dot"></span> GitHub Portföyü <b>%30</b></div>
+    <div class="abadge"><span class="dot"></span> Final Sınavı <b>%30</b></div>
+    <div class="abadge"><span class="dot"></span> Capstone Projesi <b>%40</b></div>
+  </div>
+</div>
+
+<!-- CURRICULUM -->
+<section id="mufredat">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kick">Müfredat</span>
+      <h2>15 Haftalık Öğrenme Yolculuğu</h2>
+      <p>Üç bölümden oluşan program; her hafta 6 saat, uygulamalı derslerle ilerler.</p>
+    </div>
+
+    <!-- BLOCK 1 -->
+    <div class="block reveal">
+      <div class="block-head">
+        <div class="idx">01</div>
+        <h3>Veri Bilimi Temelleri</h3>
+        <div class="hrs">24 saat</div>
+      </div>
+      <div class="weeks">
+        <div class="week"><span class="wk">HAFTA 1</span><span class="wh">6 saat</span><h4>Veri Bilimi Ekosistemi ve Python Temelleri</h4><div class="mod">Modül 1</div><div class="libs"><span class="lib">Python 3</span><span class="lib">Colab</span><span class="lib">IPython</span></div></div>
+        <div class="week"><span class="wk">HAFTA 2</span><span class="wh">6 saat</span><h4>NumPy ve Pandas ile Keşifsel Veri Analizi</h4><div class="mod">Modül 2</div><div class="libs"><span class="lib">NumPy</span><span class="lib">Pandas</span><span class="lib">OpenPyXL</span></div></div>
+        <div class="week"><span class="wk">HAFTA 3</span><span class="wh">6 saat</span><h4>Veri Görselleştirme ve Hikayeleştirme</h4><div class="mod">Modül 3</div><div class="libs"><span class="lib">Matplotlib</span><span class="lib">Seaborn</span><span class="lib">Plotly</span><span class="lib">+3</span></div></div>
+        <div class="week"><span class="wk">HAFTA 4</span><span class="wh">6 saat</span><h4>İstatistiksel Analiz ve A/B Testleri</h4><div class="mod">Modül 4</div><div class="libs"><span class="lib">SciPy</span><span class="lib">Statsmodels</span></div></div>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 -->
+    <div class="block reveal">
+      <div class="block-head">
+        <div class="idx">02</div>
+        <h3>Makine Öğrenmesi Uzmanlığı</h3>
+        <div class="hrs">30 saat</div>
+      </div>
+      <div class="weeks">
+        <div class="week"><span class="wk">HAFTA 5</span><span class="wh">6 saat</span><h4>Makine Öğrenmesi I — Regresyon</h4><div class="mod">Modül 5</div><div class="libs"><span class="lib">scikit-learn</span><span class="lib">Gradio</span><span class="lib">Streamlit</span><span class="lib">+1</span></div></div>
+        <div class="week"><span class="wk">HAFTA 6</span><span class="wh">6 saat</span><h4>Makine Öğrenmesi II — Sınıflandırma ve Kaggle</h4><div class="mod">Modül 6</div><div class="libs"><span class="lib">scikit-learn</span></div></div>
+        <div class="week"><span class="wk">HAFTA 7</span><span class="wh">6 saat</span><h4>İleri Makine Öğrenmesi — Ensemble Modeller</h4><div class="mod">Modül 7</div><div class="libs"><span class="lib">scikit-learn</span><span class="lib">XGBoost</span><span class="lib">LightGBM</span></div></div>
+        <div class="week"><span class="wk">HAFTA 8</span><span class="wh">6 saat</span><h4>Kümeleme, Zaman Serileri ve Öneri Sistemleri</h4><div class="mod">Modül 8</div><div class="libs"><span class="lib">scikit-learn</span><span class="lib">Prophet</span><span class="lib">scikit-surprise</span></div></div>
+        <div class="week"><span class="wk">HAFTA 9</span><span class="wh">6 saat</span><h4>MLOps Temelleri ve Veri Bilimi Capstone</h4><div class="mod">Modül 9</div><div class="libs"><span class="lib">Streamlit</span><span class="lib">Joblib</span></div></div>
+      </div>
+    </div>
+
+    <!-- BLOCK 3 -->
+    <div class="block reveal">
+      <div class="block-head">
+        <div class="idx">03</div>
+        <h3>Yapay Zeka Mühendisliği</h3>
+        <div class="hrs">36 saat</div>
+      </div>
+      <div class="weeks">
+        <div class="week"><span class="wk">HAFTA 10</span><span class="wh">6 saat</span><h4>Derin Öğrenmeye Giriş ve Yapay Sinir Ağları</h4><div class="mod">Modül 10</div><div class="libs"><span class="lib">TensorFlow</span><span class="lib">Keras</span></div></div>
+        <div class="week"><span class="wk">HAFTA 11</span><span class="wh">6 saat</span><h4>Görüntü İşlemenin Temelleri ve OpenCV</h4><div class="mod">Modül 11</div><div class="libs"><span class="lib">OpenCV</span><span class="lib">NumPy</span><span class="lib">Matplotlib</span></div></div>
+        <div class="week"><span class="wk">HAFTA 12</span><span class="wh">6 saat</span><h4>Bilgisayarlı Görü ve Transfer Learning</h4><div class="mod">Modül 12</div><div class="libs"><span class="lib">TensorFlow</span><span class="lib">Keras</span></div></div>
+        <div class="week"><span class="wk">HAFTA 13</span><span class="wh">6 saat</span><h4>Doğal Dil İşleme (NLP) ve Hugging Face</h4><div class="mod">Modül 13</div><div class="libs"><span class="lib">Transformers</span><span class="lib">NLTK</span></div></div>
+        <div class="week"><span class="wk">HAFTA 14</span><span class="wh">6 saat</span><h4>Generative AI, LLM ve Prompt Mühendisliği</h4><div class="mod">Modül 14</div><div class="libs"><span class="lib">Gemini API</span><span class="lib">ChromaDB</span><span class="lib">LangChain</span></div></div>
+        <div class="week"><span class="wk">HAFTA 15</span><span class="wh">6 saat</span><h4>AI Etik, Gelecek ve AI Capstone Projesi</h4><div class="mod">Modül 15 — Final</div><div class="libs"><span class="lib">Projeye göre değişir</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kick">Araçlar</span>
+      <h2>Platformlar ve Programlar</h2>
+      <p>Program boyunca kullanılan, tamamı ücretsiz erişilebilen araçlar.</p>
+    </div>
+    <div class="plat-grid reveal">
+      <a href="https://colab.research.google.com/" class="plat"><span class="ic">🟡</span><div><b>Google Colab</b><span>Bulutta ücretsiz Python notebook ve GPU erişimi</span></div></a>
+      <a href="https://code.visualstudio.com/" class="plat"><span class="ic">🟦</span><div><b>VS Code</b><span>Yerel geliştirme için IDE (tercih ettiğiniz başka bir IDE de olabilir)</span></div></a>
+      <a href="https://github.com/" class="plat"><span class="ic">⚫</span><div><b>GitHub</b><span>Kod barındırma, versiyon kontrolü, portföy oluşturma</span></div></a>
+      <a href="https://www.kaggle.com/" class="plat"><span class="ic">🔵</span><div><b>Kaggle</b><span>Veri seti, yarışmalar, hazır notebook örnekleri</span></div></a>
+      <a href="https://huggingface.co/" class="plat"><span class="ic">🤗</span><div><b>Hugging Face</b><span>Hazır AI modelleri, Spaces ile model yayınlama</span></div></a>
+      <a href="https://drive.google.com/" class="plat"><span class="ic">📁</span><div><b>Google Drive</b><span>Veri ve materyal paylaşımı, notebook senkronizasyonu</span></div></a>
+      <a href="https://streamlit.io/" class="plat"><span class="ic">🚀</span><div><b>Streamlit / Gradio</b><span>Birkaç satırla AI uygulaması arayüzü ve deploy</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="req-section" id="kosullar">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kick">Ön Koşullar</span>
+      <h2>Katılım Koşulları</h2>
+      <p>Programa başlamak için ihtiyacınız olan her şey.</p>
+    </div>
+    <div class="req-grid reveal">
+      <div class="req"><span class="ic">💻</span><h4>Bilgisayar ve İnternet</h4><p>Windows / Mac / Linux fark etmez. Bulut tabanlı (Colab) çalışılır, donanım gerekmez. İstikrarlı internet bağlantısı yeterlidir.</p></div>
+      <div class="req"><span class="ic">🐍</span><h4>Programlama Ön Şartı Yok</h4><p>Python sıfırdan başlar. Daha önce kod yazmamış olmak sorun değildir. Mantık ve sabır yeter.</p></div>
+      <div class="req"><span class="ic">🌐</span><h4>Temel İngilizce Okuma</h4><p>Dokümantasyon ve hata mesajları İngilizcedir. Çeviri araçlarıyla rahat çalışılabilir.</p></div>
+      <div class="req"><span class="ic">⏱️</span><h4>Haftada 6–8 Saat</h4><p>Canlı ders + ödev + pratik için ayrılması önerilen süre. Düzenli pratik başarının anahtarıdır.</p></div>
+      <div class="req"><span class="ic">🔐</span><h4>Ücretsiz Hesaplar</h4><p>Google, GitHub, Kaggle ve Hugging Face hesapları (hepsi ücretsiz). İlk hafta birlikte açılır.</p></div>
+      <div class="req"><span class="ic">🚀</span><h4>Öğrenme Tutkusu</h4><p>Problem çözmeye açık, projelerle öğrenmeyi seven, sorular soran katılımcı profili idealdir.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kayit">
+  <div class="wrap">
+    <h2>90 Saatlik Programa Katılın</h2>
+    <p>Europe Coding School ile canlı, etkileşimli Veri Bilimi ve Yapay Zeka Uzmanlığı eğitimi. Detaylı bilgi ve kayıt için bizimle iletişime geçin.</p>
+    <a href="https://europecodingschool.com" class="btn cta-btn">Kayıt ve Bilgi Al →</a>
+    <div class="cta-note">Europe Coding School · Istanbul · Amsterdam · Tallinn</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="logo.png" alt="Europe Coding School">
+        <p>90 saatlik kapsamlı Veri Bilimi ve Yapay Zeka Uzmanlığı Programı. Python, makine öğrenmesi, derin öğrenme, NLP ve üretken yapay zeka konularını içerir.</p>
+      </div>
+      <div>
+        <h5>Program Bilgileri</h5>
+        <ul>
+          <li>📅 15 Hafta · 90 Saat</li>
+          <li>🐍 Python · Pandas · Scikit-learn</li>
+          <li>🧠 Derin Öğrenme · NLP · Generative AI</li>
+          <li>📊 Veri Bilimi · MLOps</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Europe Coding School</h5>
+        <ul>
+          <li><a href="https://europecodingschool.com">🌐 Web Sitesi</a></li>
+          <li><a href="https://github.com/europecodingschool">⚫ GitHub</a></li>
+          <li><a href="https://europecodingschool.com">🎓 Tüm Programlar</a></li>
+          <li><a href="https://europecodingschool.com">📧 İletişim</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Europe Coding School — Veri Bilimi ve Yapay Zeka Uzmanlığı Programı</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
